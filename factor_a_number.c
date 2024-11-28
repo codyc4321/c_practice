@@ -2,7 +2,30 @@
 #include <stdbool.h>
 #include <math.h>
 
+/*
+Goal is to factor a number "factorable" where 
 
+    int factorable = 60;
+    array factor_this_num(factorable) {
+        return [2, 2, 3, 5];
+    }
+    
+but how do this in C? hmm
+
+starting with the lowest prime number, 2, try to divide factorable by 2
+if factorable is divisible by 2, add 2 to the array of factors, and set factorable to 30 (use recursion?!?)
+again, reset the divisor to the lowest prime 2. continue attempting to factor:
+    factors = [2, 2]
+now try 2, but 15/2 returns 7.5 which is_integer() says is false, therefore 2 is not a divisor
+now increment divisor to 3, which works
+    factors = [2, 2, 3]
+repeat this process until factorable (5) / divisor (5) returns 1
+this tells us that the process is over
+
+IF factorable = 17 and all numbers up to and including 16 fail, once we increment and divisor == factorable,
+we can return result -1 instead of an array, or ask Dr. Peter return empty array to say prime?
+
+*/
 
 bool is_integer(float possible_int) {
     // nice and clean solution (import math.h):
