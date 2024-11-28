@@ -61,6 +61,23 @@ bool is_prime(float possible_prime) {
     }
 }
 
+bool is_integer_prime(int possible_prime) {
+    // what happens if we use the same parameter name in a different function?
+    int prime_divisor = 2;
+
+    while (1) {
+        int remainder = possible_prime % prime_divisor;
+        // bool is_divisible = is_integer(divided);
+        if (remainder == 0) {
+            return false;
+        }
+        prime_divisor++;
+        if (prime_divisor == possible_prime) {
+            return true;
+        }
+    }
+}
+
 //https://stackoverflow.com/questions/11656532/returning-an-array-using-c
 void factor_any_number(int *factors, size_t factors_array_size, float number_to_divide) {
     /*
@@ -104,6 +121,18 @@ int main() {
     bool prime_result_4 = is_prime(is_prime_2);
     printf("Is %f prime? %s\n", is_prime_2, prime_result_4 ? "yes" : "no");
     assert(prime_result_4);
+
+    int not_prime_int_1 = 4;
+    bool prime_int_result_1 = is_integer_prime(not_prime_int_1);
+    assert(prime_int_result_1 == false);
+
+    int not_prime_int_2 = 9;
+    bool prime_int_result_2 = is_integer_prime(not_prime_int_2);
+    assert(prime_int_result_2 == false);
+
+    int prime_int_1 = 113;
+    bool prime_int_result_3 = is_integer_prime(prime_int_1);
+    assert(prime_int_result_3 == true);
 
    return 0;
 }
