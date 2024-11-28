@@ -22,6 +22,9 @@ now increment divisor to 3, which works
 repeat this process until factorable (5) / divisor (5) returns 1
 this tells us that the process is over
 
+remember, each time we increment to try to divide factorable by a prime, we have to use is_prime()
+to check if this new number is a prime to factor it correctly.
+
 IF factorable = 17 and all numbers up to and including 16 fail, once we increment and divisor == factorable,
 we can return result -1 instead of an array, or ask Dr. Peter return empty array to say prime?
 
