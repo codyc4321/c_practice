@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
+#include <assert.h>
 
 /*
 Goal is to factor a number "factorable" where 
@@ -86,18 +87,23 @@ int main() {
     float not_prime_1 = 4;
     bool prime_result_1 = is_prime(not_prime_1);
     printf("Is %f prime? %s\n", not_prime_1, prime_result_1 ? "yes" : "no");
- 
+    assert(prime_result_1 == false);
+
+
     float not_prime_2 = 9;
     bool prime_result_2 = is_prime(not_prime_2);
     printf("Is %f prime? %s\n", not_prime_2, prime_result_2 ? "yes" : "no");
+    assert(prime_result_2 == false);
 
     float is_prime_1 = 17;
     bool prime_result_3 = is_prime(is_prime_1);
     printf("Is %f prime? %s\n", is_prime_1, prime_result_3 ? "yes" : "no");
+    assert(prime_result_3);
 
     float is_prime_2 = 113;
     bool prime_result_4 = is_prime(is_prime_2);
     printf("Is %f prime? %s\n", is_prime_2, prime_result_4 ? "yes" : "no");
+    assert(prime_result_4);
 
    return 0;
 }
