@@ -3,6 +3,8 @@
 #include <math.h>
 
 
+// this accepted answer for some reason isn't working
+// https://stackoverflow.com/questions/5796983/checking-if-float-is-an-integer
 bool is_integer(float possible_int) {
     bool is_an_int = ceilf(possible_int) == possible_int;
 }
@@ -19,7 +21,8 @@ int main() {
 
     bool is_it_huh = is_integer(not_integer);
 
-    printf("Is integer returned %s", not_integer ? "true" : "false");
+    // https://stackoverflow.com/questions/17307275/what-is-the-printf-format-specifier-for-bool
+    printf("Is integer returned %s", is_it_huh ? "true" : "false");
 
     // float number_to_factor = 87;
 
