@@ -60,6 +60,23 @@ bool is_prime(float possible_prime) {
     }
 }
 
+//https://stackoverflow.com/questions/11656532/returning-an-array-using-c
+void factor_any_number(int *factors, size_t factors_array_size, float number_to_divide) {
+    /*
+    for number_to_divide = 40;
+    start with divisor = 2;
+    divide number_to_divide by the divisor
+    check if the result is an even number (is_integer())
+    if so, add 2 to the factors array AND set number_to_divide to 20
+        set divisor back to the bottom prime number (2)
+    else, increment divisor to 3 and try again 
+    wouldn't modulo be an easier and cleaner way to do this than changing between floats to ints?
+    after each divisible, check if the number_to_divide is prime with is_prime()? would this
+    flow be more performant? I think so maybe
+    */
+   int placeholder = 0;
+}
+
 
 int main() {
 
