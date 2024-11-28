@@ -46,13 +46,19 @@ bool is_prime(float possible_prime) {
     // as it is only divisible by 1, and itself.
     // of course we have to start dividing by 2, the first prime number, 1 is not a prime.
     float prime_divisor = 2;
-    float divided = possible_prime / prime_divisor;
-    bool is_divisible = is_integer(divided);
-    if (is_divisible) {
-        return false;
-    } else {
-        return true;
+
+    while (1) {
+        float divided = possible_prime / prime_divisor;
+        bool is_divisible = is_integer(divided);
+        if (is_divisible) {
+            return false;
+        }
+        prime_divisor++;
+        if (prime_divisor == possible_prime) {
+            return true;
+        }
     }
+    
 
     float prime_divisor_second = 2;
     float divided_second = possible_prime / prime_divisor_second;
@@ -67,37 +73,24 @@ bool is_prime(float possible_prime) {
 
 int main() {
 
-    /*
-    float not_integer = 87.001f;
-    bool is_it_huh = is_integer(not_integer);
     // https://stackoverflow.com/questions/17307275/what-is-the-printf-format-specifier-for-bool
-    printf("Is integer returned %s", is_it_huh ? "true" : "false");
-    */
     
-   printf("hello world\n");
-//    fflush(stdout);
-
+    // write some ugly tests, can't get C Unit working yet need Dr. Dom
     float not_prime_1 = 4;
     bool prime_result_1 = is_prime(not_prime_1);
     printf("Is %f prime? %s\n", not_prime_1, prime_result_1 ? "yes" : "no");
-    // fflush(stdout);
-
+ 
     float not_prime_2 = 9;
     bool prime_result_2 = is_prime(not_prime_2);
     printf("Is %f prime? %s\n", not_prime_2, prime_result_2 ? "yes" : "no");
-    fflush(stdout);
 
-    // float maybe_prime = 87;
-    // bool prime_result = is_prime(maybe_prime);
-    // printf("Is %d prime? %s", maybe_prime, prime_result ? "yes" : "no");
+    float is_prime_1 = 17;
+    bool prime_result_3 = is_prime(is_prime_1);
+    printf("Is %f prime? %s\n", is_prime_1, prime_result_3 ? "yes" : "no");
 
-    /*
-    if (prime_huh) {
-        printf("Yes, it was prime");
-    } else {
-        printf("No, not prime.");
-    }
-    */
+    float is_prime_2 = 113;
+    bool prime_result_4 = is_prime(is_prime_2);
+    printf("Is %f prime? %s\n", is_prime_2, prime_result_4 ? "yes" : "no");
 
    return 0;
 }
