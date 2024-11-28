@@ -58,16 +58,6 @@ bool is_prime(float possible_prime) {
             return true;
         }
     }
-    
-
-    float prime_divisor_second = 2;
-    float divided_second = possible_prime / prime_divisor_second;
-    bool is_divisible_second = is_integer(divided_second);
-    if (is_divisible_second) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
 
