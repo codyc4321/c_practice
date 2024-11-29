@@ -37,7 +37,7 @@ bool is_integer(float possible_int) {
     bool is_an_int = ceilf(possible_int) == possible_int;
 }
 
-bool is_prime(float possible_prime) {
+bool is_float_prime(float possible_prime) {
     // naive version: divides "possible_prime" by every number lower than itself,
     // while incrementing the divisor by 1 each time until we reach "possible_prime" argument
     // each time we divide, we check if the result is an int using "is_integer"
@@ -78,6 +78,8 @@ bool is_integer_prime(int possible_prime) {
     }
 }
 
+// https://stackoverflow.com/questions/3536153/c-dynamically-growing-array
+
 //https://stackoverflow.com/questions/11656532/returning-an-array-using-c
 void factor_any_number(int *factors, size_t factors_array_size, float number_to_divide) {
     /*
@@ -102,23 +104,23 @@ int main() {
     
     // write some ugly tests, can't get C Unit working yet need Dr. Dom
     float not_prime_1 = 4;
-    bool prime_result_1 = is_prime(not_prime_1);
+    bool prime_result_1 = is_float_prime(not_prime_1);
     printf("Is %f prime? %s\n", not_prime_1, prime_result_1 ? "yes" : "no");
     assert(prime_result_1 == false);
 
 
     float not_prime_2 = 9;
-    bool prime_result_2 = is_prime(not_prime_2);
+    bool prime_result_2 = is_float_prime(not_prime_2);
     printf("Is %f prime? %s\n", not_prime_2, prime_result_2 ? "yes" : "no");
     assert(prime_result_2 == false);
 
     float is_prime_1 = 17;
-    bool prime_result_3 = is_prime(is_prime_1);
+    bool prime_result_3 = is_float_prime(is_prime_1);
     printf("Is %f prime? %s\n", is_prime_1, prime_result_3 ? "yes" : "no");
     assert(prime_result_3);
 
     float is_prime_2 = 113;
-    bool prime_result_4 = is_prime(is_prime_2);
+    bool prime_result_4 = is_float_prime(is_prime_2);
     printf("Is %f prime? %s\n", is_prime_2, prime_result_4 ? "yes" : "no");
     assert(prime_result_4);
 
