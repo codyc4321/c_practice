@@ -32,6 +32,8 @@ we can return result -1 instead of an array, or ask Dr. Peter return empty array
 
 */
 
+
+
 bool is_integer(float possible_int) {
     // nice and clean solution (import math.h):
     // https://stackoverflow.com/questions/5796983/checking-if-float-is-an-integer
@@ -82,7 +84,8 @@ bool is_integer_prime(int possible_prime) {
 // https://stackoverflow.com/questions/3536153/c-dynamically-growing-array
 
 //https://stackoverflow.com/questions/11656532/returning-an-array-using-c
-void factor_any_number(int *factors, size_t factors_array_size, float number_to_divide) {
+// void factor_any_number(int *factors, size_t factors_array_size, float number_to_divide) {
+void factor_any_number(int n, int *factors) {
     /*
     for number_to_divide = 40;
     start with divisor = 2;
@@ -96,6 +99,10 @@ void factor_any_number(int *factors, size_t factors_array_size, float number_to_
     flow be more performant? I think so maybe
     */
    int placeholder = 0;
+
+   factors[0] = 3;
+   factors[1] = 9;
+   printf("%d\n", factors[1]);
 }
 
 
@@ -133,5 +140,18 @@ int main(int argc, char** argv) {
     } else {
         printf("No, it isn't prime.");
     }
+
+    int *arr;
+    int size;
+
+    arr = (int*)malloc(size * sizeof(int));
+
+    if (arr == NULL) {
+        printf("memory allocation failed\n");
+        return 1;
+    }
+
+    factor_any_number(arr);
+
     return 0;
 }
