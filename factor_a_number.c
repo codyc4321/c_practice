@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <assert.h>
+#include <stdlib.h>
 
 /*
 Goal is to factor a number "factorable" where 
@@ -98,43 +99,32 @@ void factor_any_number(int *factors, size_t factors_array_size, float number_to_
 }
 
 
-int main() {
-
-    // https://stackoverflow.com/questions/17307275/what-is-the-printf-format-specifier-for-bool
+void run_tests(void) {
+        // https://stackoverflow.com/questions/17307275/what-is-the-printf-format-specifier-for-bool
     
     // write some ugly tests, can't get C Unit working yet need Dr. Dom
     float not_prime_1 = 4;
-    bool prime_result_1 = is_float_prime(not_prime_1);
-    printf("Is %f prime? %s\n", not_prime_1, prime_result_1 ? "yes" : "no");
-    assert(prime_result_1 == false);
-
-
+    assert(is_float_prime(not_prime_1) == false);
     float not_prime_2 = 9;
-    bool prime_result_2 = is_float_prime(not_prime_2);
-    printf("Is %f prime? %s\n", not_prime_2, prime_result_2 ? "yes" : "no");
-    assert(prime_result_2 == false);
-
+    assert(is_float_prime(not_prime_2) == false);
     float is_prime_1 = 17;
-    bool prime_result_3 = is_float_prime(is_prime_1);
-    printf("Is %f prime? %s\n", is_prime_1, prime_result_3 ? "yes" : "no");
-    assert(prime_result_3);
-
+    assert(is_float_prime(is_prime_1));
     float is_prime_2 = 113;
-    bool prime_result_4 = is_float_prime(is_prime_2);
-    printf("Is %f prime? %s\n", is_prime_2, prime_result_4 ? "yes" : "no");
-    assert(prime_result_4);
+    assert(is_float_prime(is_prime_2));
 
     int not_prime_int_1 = 4;
-    bool prime_int_result_1 = is_integer_prime(not_prime_int_1);
-    assert(prime_int_result_1 == false);
-
+    assert(is_integer_prime(not_prime_int_1) == false);
     int not_prime_int_2 = 9;
-    bool prime_int_result_2 = is_integer_prime(not_prime_int_2);
-    assert(prime_int_result_2 == false);
-
+    assert(is_integer_prime(not_prime_int_2) == false);
     int prime_int_1 = 113;
-    bool prime_int_result_3 = is_integer_prime(prime_int_1);
-    assert(prime_int_result_3 == true);
+    assert(is_integer_prime(prime_int_1));
+}
 
-   return 0;
+int main(int argc, char** argv) {
+
+    run_tests();
+
+    int command_line_arg = atoi(argv[1]);
+    printf("You passed in number: %d", command_line_arg);
+    return 0;
 }
