@@ -125,6 +125,13 @@ int main(int argc, char** argv) {
     run_tests();
 
     int command_line_arg = atoi(argv[1]);
-    printf("You passed in number: %d", command_line_arg);
+    printf("You passed in number: %d\n", command_line_arg);
+
+    bool is_it_prime = is_integer_prime(command_line_arg);
+    if (is_it_prime) {
+        printf("Yes, it is prime!");
+    } else {
+        printf("No, it isn't prime.");
+    }
     return 0;
 }
